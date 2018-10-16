@@ -1,9 +1,16 @@
+---
+output: 
+  html_document: 
+    fig_caption: yes
+    keep_md: yes
+---
 The reproducible research assignmnent
 =====================================
+
+
+
 Read to object mydata and format the dates
 
-
-    
 
 ```r
 mydata <- read.csv("activity.csv", sep=",")
@@ -210,7 +217,7 @@ Histogram of the number of steps taken each day
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk P1](instructions_fig/P1-1.png)
+![](instructions_fig/P1-1.png)<!-- -->
 
 The mean and median of total number of steps taken each day
 
@@ -246,7 +253,7 @@ mydata$interval <- as.factor(mydata$interval)
 plot(levels(mydata$interval), avgsteachintv,type="l", xlab="time interval", ylab="average no of steps each inverval")
 ```
 
-![plot of chunk P2](instructions_fig/P2-1.png)
+![](instructions_fig/P2-1.png)<!-- -->
 
 Determine the 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
@@ -383,7 +390,7 @@ sumsteps <- by(mynewdata[, 1], mynewdata$date, sum, na.rm=TRUE)
 hist(sumsteps, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk P3](instructions_fig/P3-1.png)
+![](instructions_fig/P3-1.png)<!-- -->
 
 New values of mean and median
 
@@ -481,4 +488,4 @@ plot(levels(mynewdata$interval), weekendsteps, type="l", xlab="interval",ylab="d
 plot(levels(mynewdata$interval), wdaysteps, type="l", xlab="interval",ylab="daily avg no of steps",main="weekday",col="blue")
 ```
 
-![plot of chunk P4](instructions_fig/P4-1.png)
+![](instructions_fig/P4-1.png)<!-- -->

@@ -212,7 +212,7 @@ Histogram of the number of steps taken each day
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-19](README_figs/README-unnamed-chunk-19-1.png)
 
 The mean and median of total number of steps taken each day
 
@@ -245,7 +245,7 @@ mydata$interval <- as.factor(mydata$interval)
 plot(levels(mydata$interval), avgsteachintv,type="l", xlab="time interval", ylab="average no of steps each inverval")
 ```
 
-![plot of chunk avg daily pattern activity](figure/avg daily pattern activity-1.png)
+![plot of chunk avg daily pattern activity](README_figs/README-avg daily pattern activity-1.png)
 
 Determine the 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
@@ -379,7 +379,7 @@ sumsteps <- by(mynewdata[, 1], mynewdata$date, sum, na.rm=TRUE)
 hist(sumsteps, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk the total number of steps each day and histogram of it](figure/the total number of steps each day and histogram of it-1.png)
+![plot of chunk the total number of steps each day and histogram of it](README_figs/README-the total number of steps each day and histogram of it-1.png)
 
 New values of mean and median
 
@@ -474,4 +474,4 @@ plot(levels(mynewdata$interval), weekendsteps, type="l", xlab="interval",ylab="d
 plot(levels(mynewdata$interval), wdaysteps, type="l", xlab="interval",ylab="daily avg no of steps",main="weekday",col="blue")
 ```
 
-![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32-1.png)
+![plot of chunk unnamed-chunk-33](README_figs/README-unnamed-chunk-33-1.png)

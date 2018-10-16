@@ -210,7 +210,7 @@ Histogram of the number of steps taken each day
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk unnamed-chunk-18](instructions_fig/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-2](instructions_fig/unnamed-chunk-2-1.png)
 
 The mean and median of total number of steps taken each day
 
@@ -240,10 +240,13 @@ Calculate and plot the average daily activity pattern
 ```r
 avgsteachintv <- by(mydata[, 1], mydata$interval, mean, na.rm=TRUE)
 mydata$interval <- as.factor(mydata$interval)
+```
+
+```r
 plot(levels(mydata$interval), avgsteachintv,type="l", xlab="time interval", ylab="average no of steps each inverval")
 ```
 
-![plot of chunk avg daily pattern activity](instructions_fig/avg daily pattern activity-1.png)
+![plot of chunk unnamed-chunk-3](instructions_fig/unnamed-chunk-3-1.png)
 
 Determine the 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
@@ -374,10 +377,13 @@ Histogram of the total number of steps taken each day and Calculate and report t
 
 ```r
 sumsteps <- by(mynewdata[, 1], mynewdata$date, sum, na.rm=TRUE)
+```
+
+```r
 hist(sumsteps, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk the total number of steps each day and histogram of it](instructions_fig/the total number of steps each day and histogram of it-1.png)
+![plot of chunk unnamed-chunk-13](instructions_fig/unnamed-chunk-13-1.png)
 
 New values of mean and median
 
@@ -466,10 +472,13 @@ Plotting the average number of steps each day for weekdays and weekends for each
 
 
 ```r
-par(mfrow=c(2,1))
 mynewdata$interval <- as.factor(mynewdata$interval)
+```
+
+```r
+par(mfrow=c(2,1))
 plot(levels(mynewdata$interval), weekendsteps, type="l", xlab="interval",ylab="daily avg no of steps",main="weekend",col="blue")
 plot(levels(mynewdata$interval), wdaysteps, type="l", xlab="interval",ylab="daily avg no of steps",main="weekday",col="blue")
 ```
 
-![plot of chunk unnamed-chunk-32](instructions_fig/unnamed-chunk-32-1.png)
+![plot of chunk unnamed-chunk-19](instructions_fig/unnamed-chunk-19-1.png)

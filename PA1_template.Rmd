@@ -2,11 +2,10 @@ The reproducible research assignmnent
 =====================================
 Read to object mydata and format the dates
 
-```{r, echo = TRUE}
-knitr::opts_chunk$set(
-  fig.path = "README_figs/README-")
-```
-
+output: 
+  html_document:
+    keep_md: true
+    
 ```{r reading data, echo = TRUE}
 mydata <- read.csv("activity.csv", sep=",")
 mydata$date <- as.Date(mydata$date, format="%m/%d/%Y")

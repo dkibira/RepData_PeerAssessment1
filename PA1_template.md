@@ -212,7 +212,7 @@ Histogram of the number of steps taken each day
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk unnamed-chunk-19](README_figs/README-unnamed-chunk-19-1.png)
+![plot of chunk unnamed-chunk-18](README_figs/README-unnamed-chunk-18-1.png)
 
 The mean and median of total number of steps taken each day
 
@@ -474,4 +474,4 @@ plot(levels(mynewdata$interval), weekendsteps, type="l", xlab="interval",ylab="d
 plot(levels(mynewdata$interval), wdaysteps, type="l", xlab="interval",ylab="daily avg no of steps",main="weekday",col="blue")
 ```
 
-![plot of chunk unnamed-chunk-33](README_figs/README-unnamed-chunk-33-1.png)
+![plot of chunk unnamed-chunk-32](README_figs/README-unnamed-chunk-32-1.png)

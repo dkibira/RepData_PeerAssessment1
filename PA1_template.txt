@@ -1,9 +1,14 @@
+---
+output: 
+  html_document: 
+    fig_caption: yes
+    keep_md: yes
+---
 The reproducible research assignmnent
 =====================================
+
+
 Read to object mydata and format the dates
-
-
-    
 
 ```r
 mydata <- read.csv("activity.csv", sep=",")

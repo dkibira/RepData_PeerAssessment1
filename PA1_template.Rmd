@@ -14,11 +14,13 @@ The total number of steps taken per day
 sumstepsbyday <- by(mydata[, 1], mydata$date, sum, na.rm=TRUE)
 sumstepsbyday
 ```
+
 Histogram of the number of steps taken each day
 
-```{r, echo=TRUE}
+```{r, hist, echo=TRUE}
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
+
 The mean and median of total number of steps taken each day
 
 ```{r mean and median, echo=TRUE}
@@ -30,7 +32,9 @@ medianstepsbyday <- median(sumstepbyday1, na.rm=TRUE)
 medianstepsbyday
 
 ```
+
 Calculate and plot the average daily activity pattern
+
 ```{r avg daily pattern activity, echo=TRUE}
 
 avgsteachintv <- by(mydata[, 1], mydata$interval, mean, na.rm=TRUE)
@@ -49,15 +53,19 @@ x[which(avgsteachintv == maxsteps)]
 ```
 
 Calculate and report the total number of missing values, i.e., NAs
+
 ```{r, echo=TRUE}
 sum(is.na(mydata))
 ```
+
 
 Imputing the missing values
 we impute missing values using the mean of the number of steps for that day
 use the packages Hmisc
 
+
 calculate the avg number of steps each day
+
 ```{r there are 61 days, echo=TRUE}
 
 library(Hmisc)
@@ -65,6 +73,7 @@ meanstepseachday <- by(mydata[, 1], mydata$date, mean)
 ```
 
 Create a vector where to copy imputed values
+
 ```{r, echo=TRUE}
 
 d.impvalues <- vector(mode="double", length=nrow(meanstepseachday))
@@ -91,6 +100,7 @@ Create a vector to store all imputable values across all steps in case they are 
 m.impvalues <- vector(mode="double", length=nrow(mydata))
 
 ```
+
 Copy the values for each day across all records of steps taken
 we first determine the unique number of dates and time interval in the data set
 
@@ -101,7 +111,9 @@ uniquedates <- length(levels(mydata$date))
 
 uniqueintv <- length(levels(mydata$interval))
 ```
+
 Copy vales for each day across all records of steps taken
+
 ```{r, echo=TRUE}
 j <- 1
 k <- 1
@@ -114,6 +126,7 @@ for (j in 1:uniquedates) {
  }
  
 ```
+
 Through the original dataset, look for missing values and substitute with the mean for that day. These are contained in the vector [m.impvalues]
 
 ```{r, echo=TRUE}
@@ -125,6 +138,7 @@ for (jj in 1:nrow(mydata)) {
 		}
 }
 ```
+
 The dataset is now without missing values and we can call it: mynewdata. Check out the top ten observations of the new dataset
 
 ```{r, echo=TRUE}
@@ -132,6 +146,7 @@ mynewdata <- mydata
 head(mynewdata,10)
 
 ```
+
 Check if the new dataset has any missing observations
 
 ```{r, echo=TRUE}
@@ -145,13 +160,17 @@ Histogram of the total number of steps taken each day and Calculate and report t
 sumsteps <- by(mynewdata[, 1], mynewdata$date, sum, na.rm=TRUE)
 hist(sumsteps, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
+
 New values of mean and median
+
 ```{r, echo=TRUE}
 mean(sumsteps)
 median(sumsteps)
 
 ```
+
 Old values of mean and median
+
 ```{r, echo=TRUE}
 meanstepsbyday
 medianstepsbyday
@@ -196,10 +215,12 @@ weekenddata <- subset(mynewdata, wday == "weekend")
 ```
 
 Determine the mean for each and make a plot. 
+
 ```{r, echo=TRUE}
 wdaysteps <- by(wdaydata[, 1], wdaydata$interval, mean)
 weekendsteps <- by(weekenddata[, 1], weekenddata$interval, mean)
 ```
+
 Plotting the average number of steps each day for weekdays and weekends for each time interval. The base plot is good enough as per instructions
 
 ```{r, echo=TRUE}

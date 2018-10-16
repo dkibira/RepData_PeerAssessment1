@@ -7,18 +7,11 @@ output:
 The reproducible research assignmnent
 =====================================
 
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  fig.path = "instructions_fig/")
-
-```
 
 Read to object mydata and format the dates
-
-```{r reading data, echo = TRUE}
+```{r, echo=TRUE}
 mydata <- read.csv("activity.csv", sep=",")
 mydata$date <- as.Date(mydata$date, format="%m/%d/%Y")
-
 ```
 
 The total number of steps taken per day

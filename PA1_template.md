@@ -212,7 +212,7 @@ Histogram of the number of steps taken each day
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18-1.png)
 
 The mean and median of total number of steps taken each day
 
@@ -282,36 +282,6 @@ calculate the avg number of steps each day
 
 ```r
 library(Hmisc)
-```
-
-```
-## Loading required package: lattice
-```
-
-```
-## Loading required package: survival
-```
-
-```
-## Loading required package: Formula
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```
-## 
-## Attaching package: 'Hmisc'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     format.pval, units
-```
-
-```r
 meanstepseachday <- by(mydata[, 1], mydata$date, mean)
 ```
 
@@ -504,4 +474,4 @@ plot(levels(mynewdata$interval), weekendsteps, type="l", xlab="interval",ylab="d
 plot(levels(mynewdata$interval), wdaysteps, type="l", xlab="interval",ylab="daily avg no of steps",main="weekday",col="blue")
 ```
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
+![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32-1.png)

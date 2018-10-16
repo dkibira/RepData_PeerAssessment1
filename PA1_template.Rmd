@@ -17,7 +17,8 @@ sumstepsbyday
 
 Histogram of the number of steps taken each day
 
-```{r, hist}
+```{r, echo=TRUE}
+par(mar = c(5,4,1,1), las=1)
 hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number of steps", ylab="Frequency", breaks=10)
 ```
 

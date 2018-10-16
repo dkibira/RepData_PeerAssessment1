@@ -2,6 +2,10 @@ The reproducible research assignmnent
 =====================================
 Read to object mydata and format the dates
 
+output: 
+  html_document:
+    keep_md: true
+    
 
 ```r
 mydata <- read.csv("activity.csv", sep=",")
@@ -200,6 +204,7 @@ sumstepsbyday
 ## mydata$date: 2012-11-30
 ## [1] 0
 ```
+
 Histogram of the number of steps taken each day
 
 
@@ -208,6 +213,7 @@ hist(sumstepsbyday, main ="Total number of steps taken each day", xlab="Number o
 ```
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+
 The mean and median of total number of steps taken each day
 
 
@@ -229,7 +235,9 @@ medianstepsbyday
 ```
 ## [1] 10765
 ```
+
 Calculate and plot the average daily activity pattern
+
 
 ```r
 avgsteachintv <- by(mydata[, 1], mydata$interval, mean, na.rm=TRUE)
@@ -254,6 +262,7 @@ x[which(avgsteachintv == maxsteps)]
 
 Calculate and report the total number of missing values, i.e., NAs
 
+
 ```r
 sum(is.na(mydata))
 ```
@@ -262,18 +271,52 @@ sum(is.na(mydata))
 ## [1] 2304
 ```
 
+
 Imputing the missing values
 we impute missing values using the mean of the number of steps for that day
 use the packages Hmisc
 
+
 calculate the avg number of steps each day
+
 
 ```r
 library(Hmisc)
+```
+
+```
+## Loading required package: lattice
+```
+
+```
+## Loading required package: survival
+```
+
+```
+## Loading required package: Formula
+```
+
+```
+## Loading required package: ggplot2
+```
+
+```
+## 
+## Attaching package: 'Hmisc'
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, units
+```
+
+```r
 meanstepseachday <- by(mydata[, 1], mydata$date, mean)
 ```
 
 Create a vector where to copy imputed values
+
 
 ```r
 d.impvalues <- vector(mode="double", length=nrow(meanstepseachday))
@@ -300,6 +343,7 @@ Create a vector to store all imputable values across all steps in case they are 
 ```r
 m.impvalues <- vector(mode="double", length=nrow(mydata))
 ```
+
 Copy the values for each day across all records of steps taken
 we first determine the unique number of dates and time interval in the data set
 
@@ -310,7 +354,9 @@ uniquedates <- length(levels(mydata$date))
 
 uniqueintv <- length(levels(mydata$interval))
 ```
+
 Copy vales for each day across all records of steps taken
+
 
 ```r
 j <- 1
@@ -323,6 +369,7 @@ for (j in 1:uniquedates) {
 	}
  }
 ```
+
 Through the original dataset, look for missing values and substitute with the mean for that day. These are contained in the vector [m.impvalues]
 
 
@@ -334,27 +381,14 @@ for (jj in 1:nrow(mydata)) {
 		}
 }
 ```
+
 The dataset is now without missing values and we can call it: mynewdata. Check out the top ten observations of the new dataset
 
 
 ```r
 mynewdata <- mydata
-head(mynewdata,10)
 ```
 
-```
-##    steps       date interval
-## 1      0 2012-10-01        0
-## 2      0 2012-10-01        5
-## 3      0 2012-10-01       10
-## 4      0 2012-10-01       15
-## 5      0 2012-10-01       20
-## 6      0 2012-10-01       25
-## 7      0 2012-10-01       30
-## 8      0 2012-10-01       35
-## 9      0 2012-10-01       40
-## 10     0 2012-10-01       45
-```
 Check if the new dataset has any missing observations
 
 
@@ -376,7 +410,9 @@ hist(sumsteps, main ="Total number of steps taken each day", xlab="Number of ste
 ```
 
 ![plot of chunk the total number of steps each day and histogram of it](figure/the total number of steps each day and histogram of it-1.png)
+
 New values of mean and median
+
 
 ```r
 mean(sumsteps)
@@ -393,7 +429,9 @@ median(sumsteps)
 ```
 ## [1] 10395
 ```
+
 Old values of mean and median
+
 
 ```r
 meanstepsbyday
@@ -450,10 +488,12 @@ weekenddata <- subset(mynewdata, wday == "weekend")
 
 Determine the mean for each and make a plot. 
 
+
 ```r
 wdaysteps <- by(wdaydata[, 1], wdaydata$interval, mean)
 weekendsteps <- by(weekenddata[, 1], weekenddata$interval, mean)
 ```
+
 Plotting the average number of steps each day for weekdays and weekends for each time interval. The base plot is good enough as per instructions
 
 
@@ -465,10 +505,3 @@ plot(levels(mynewdata$interval), wdaysteps, type="l", xlab="interval",ylab="dail
 ```
 
 ![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
-
-
-
-
-
-
-

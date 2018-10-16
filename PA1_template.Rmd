@@ -1,12 +1,18 @@
+---
+
+---
 The reproducible research assignmnent
 =====================================
 Read to object mydata and format the dates
-
+```{r}
+setwd("c:\\kibira\\R-Course")
+```
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 knitr::opts_chunk$set( fig.path = "instructions_fig/")
 ```
+ 
     
 ```{r reading data, echo = TRUE}
 mydata <- read.csv("activity.csv", sep=",")

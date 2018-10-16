@@ -2,7 +2,7 @@ The reproducible research assignmnent
 =====================================
 Read to object mydata and format the dates
 
-```{r, echo = FALSE}
+```{r, echo = TRUE}
 knitr::opts_chunk$set(
   fig.path = "README_figs/README-")
 ```

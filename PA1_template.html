@@ -203,7 +203,8 @@ hr {
 <body>
 <h1>The reproducible research assignmnent</h1>
 
-<p>Read to object mydata and format the dates</p>
+<p>library(httpuv)
+Read to object mydata and format the dates</p>
 
 <pre><code class="r">mydata &lt;- read.csv(&quot;activity.csv&quot;, sep=&quot;,&quot;)
 mydata$date &lt;- as.Date(mydata$date, format=&quot;%m/%d/%Y&quot;)
